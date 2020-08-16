@@ -1,0 +1,19 @@
+{
+    "name": "trackme",
+    "version": "1.0.0",
+    "description": "A web interface to view TrackMe data",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon server.js"
+    },
+    "author": "Chaitanya Goyal",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "install": "^0.13.0",
+        "nodemon": "^2.0.4"
+    }
+}
