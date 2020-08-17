@@ -1,0 +1,19 @@
+{
+    "name": "tests",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "watch": "jest --watchAll"
+    },
+    "author": "Chaitanya Goyal",
+    "license": "ISC",
+    "devDependencies": {
+        "jest": "^26.4.0"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "dotenv": "^8.2.0"
+    }
+}

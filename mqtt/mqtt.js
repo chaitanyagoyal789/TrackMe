@@ -18,6 +18,30 @@ const client = mqtt.connect("mqtt://broker.hivemq.com:1883");
 client.on('connect', () => {
     console.log('mqtt connected');
 });
+
+client.subscribe('/sensorData');
+client.on('message', (topic, message) => {
+    if (topic == '/sensorData') {
+        const data = JSON.parse(message);
+
+        Device.findOne({ "name": data.deviceId }, (err, device) => {
+            if (err) {
+                console.log(err)
+            }
+
+            const { sensorData } = device;
+            const { ts, loc, temp } = data;
+            sensorData.push({ ts, loc, temp });
+            device.sensorData = sensorData;
+            device.save(err => {
+                if (err) {
+                    console.log(err)
+                }
+            });
+        });
+    }
+});
+
 app.post('/send-command', (req, res) => {
     const { deviceId, command } = req.body;
     const topic = `/218570712/command/${deviceId}`;
