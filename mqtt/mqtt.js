@@ -47,7 +47,7 @@ app.post('/send-command', (req, res) => {
  *  {
  *  null
  *  }
- * /
+ * */
 
 client.on('message', (topic, message) => {
     if (topic == '/sensorData') {
@@ -97,7 +97,7 @@ app.put('/sensor-data', (req, res) => {
  *  {
  *  null
  *  }
- * /
+ * */
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`);
